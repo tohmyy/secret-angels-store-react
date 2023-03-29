@@ -1,45 +1,28 @@
 // import logo from './logo.svg';
 import './App.css';
 import './categories.styles.scss'
+import Home from './routes/home/home.component';
+import Navigation from './routes/header/header.component';
+import SignIn from './routes/sign-in/sign-in.component';
 import Main from './components/main/main.component';
-// import CategoryItem from './components/category-item/category-item.component';
-// import categories from './data/categories.json'
+import { Routes, Route, Outlet } from 'react-router-dom';
 
 const App = ()=> {
 
-
-  const categories = [
-    {
-      id: 1,
-      title: "Shoes",
-      imageUrl: "https://i.ibb.co/cvpntL1/hats.png"
-    },
-    {
-      id: 2,
-      title: "Swim Wear",
-      imageUrl: "https://i.ibb.co/px2tCc3/jackets.png"
-    },
-    {
-      id: 3,
-      title: "Tuxedos",
-      imageUrl: "https://i.ibb.co/0jqHpnp/sneakers.png"
-    },
-    {
-      id: 4,
-      title: "Gym Wears",
-      imageUrl: "https://i.ibb.co/GCCdy8t/womens.png"
-    },
-    {
-      id: 5,
-      title: "Accessories",
-      imageUrl: "https://i.ibb.co/R70vBrQ/men.png"
-    }
-]
-
-
-  return (
-  <Main categories={categories}/>
-  );
+return(
+  <>
+  {/* <Navigation/> */}
+<Routes>
+  <Route path='/' element={<Navigation/>}> 
+    <Route index element={<Home/>}/>
+    <Route path='signIn' element={<SignIn/>}/>
+    
+  </Route>
+</Routes>
+</>
+ 
+)
+  
 }
 
 export default App;
