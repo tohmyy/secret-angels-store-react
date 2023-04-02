@@ -1,10 +1,12 @@
-import { useState } from "react"
+import { useState, useContext } from "react"
 import { createUserWithEmailAndPassword, getAuth } from "firebase/auth";
+import { UserContext } from "../../context/user.context";
 import { createAuthUserWithEmailAndPassword, signInAuthUserWithEmailAndPassword, createUserDocumentFromAuth, signInWithGooglePopup } from "../../utils/firebase/firebase.utils";
 import { async } from "@firebase/util";
 import './sign-in.styles.scss'
 import FormInput from "../form-input/form-input.component";
 import Button from "../button/button.component";
+
 // import { Auth } from "firebase/auth";
 
 const defaultFormFields = {
@@ -18,30 +20,34 @@ const SignIn = () => {
     const [formFields, setFormFields] = useState(defaultFormFields);
     const{email, password} = formFields;
 
-    console.log(formFields)
+    // const {setCurrentUser, currentUser} = useContext(UserContext)
+    
+    // console.log(currentUser)
+    // console.log(formFields)
 
-    // const resetFormFields = ()=>{
-    //     setFormFields(defaultFormFields)
-    // }
+    const resetFormFields = ()=>{
+        setFormFields(defaultFormFields)
+    }
 
     const signInWithGoogle = async()=>{
-        const {user} = await signInWithGooglePopup();
-        await createUserDocumentFromAuth(user)
+        await signInWithGooglePopup();
+        
+
+        // setCurrentUser(user)
     }
 
     const handleSubmit= async(event)=>{
         event.preventDefault()
-        // event.target[2].value==event.target[3].value?
-        // // alert('successful') event.target[1].value =email
-        // :console.log('passwords dont match')
 
         try{
             const auth = getAuth()
-            const response = await signInAuthUserWithEmailAndPassword(email, password)
-            // const userDocRef = await createUserDocumentFromAuth(response.user)
-            // await createUserDocumentFromAuth(user, {displayName})
+            const user = await signInAuthUserWithEmailAndPassword(email, password)
+            
+            // setCurrentUser(user) //useContext
 
-            console.log(response)
+            resetFormFields();
+            // console.log(auth)
+            
         }catch(error){
             console.log(error.message)
             switch(error.code){
@@ -68,8 +74,7 @@ const SignIn = () => {
         //here name and value is beinf=g destructured from event.target
         setFormFields({...formFields, [name]: value}) 
         //here the value is being set to the key in default form field object (setstate)
-        // event.target.name=='displayName'?console.log(event.target.value):console.log('cant find field name')
-        // console.log(displayName)
+
     }
 
   return (
@@ -96,7 +101,7 @@ const SignIn = () => {
 
         <div className="buttons-container">
             <Button type="submit">Sign In</Button>
-            <Button buttonType="google" onClick={signInWithGooglePopup} type="button">Google Sign In</Button>
+            <Button buttonType="google" onClick={signInWithGoogle} type="button">Google Sign In</Button>
             </div> 
       </form>
       
