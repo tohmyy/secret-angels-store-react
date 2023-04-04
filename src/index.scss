@@ -1,5 +1,6 @@
 body {
   margin: 0;
+  padding: 20px 20px;
   font-family: 'Rubik', 'Lato', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -8,4 +9,7 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+*{
+  box-sizing: border-box;
 }

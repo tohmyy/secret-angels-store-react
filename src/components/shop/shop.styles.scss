@@ -1,0 +1,79 @@
+
+.shop-container{
+    // scroll-behavior: smooth;
+    // display: flex;
+    // justify-content: center;
+    // flex-direction: row;
+    // gap: 2rem;
+    // overflow: scroll;
+
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    column-gap: 10px;
+    row-gap: 70px;
+    width: 100%;
+    // padding: 0px 25px;
+    
+    .items-container{ 
+        // display: flex;
+        // flex-direction: row;
+        // width: 100%;
+        .item-box{
+            display: flex;
+            flex-direction: column;
+            
+            max-width: 300px;
+            height: auto;
+            flex-grow: 1;
+            position: relative;
+            // flex-shrink: 1;
+            // justify-content: space-around;
+            .img-box{
+                width: 100%;
+                height: 95%;
+                object-fit: cover;
+                margin-bottom: 5px;
+
+                img{
+                    min-height: 300px
+                }
+            }
+            button{
+                display: none;
+                justify-content: center;
+                position: relative;
+                bottom: 80px;
+                left: 0;
+                right: 0;
+                opacity: 0.85;
+                // width: 60%;
+                text-align: center;
+                min-width: 40px;
+                font-size: 10px;
+            }
+            .img-box :hover{
+                opacity: 0.8;
+            }
+            .img-box:hover button{
+                display: flex;
+                position: absolute;
+                // max-width: 160px;
+            }
+            
+            .text-box{
+                // margin-top: 10px;
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+            }
+        }
+        
+    }
+}
+
+.footer { width: 100%; height: 5%; display: flex; justify-content: space-between; font-size: 18px; .name { width: 90%; margin-bottom: 15px; } .price { width: 10%; } } 
+
+::-webkit-scrollbar {
+    width: 0px;
+    background: transparent; /* make scrollbar transparent */
+    }

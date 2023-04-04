@@ -8,6 +8,8 @@ import Main from './components/main/main.component';
 import { Routes, Route, Outlet } from 'react-router-dom';
 import SignUp from './components/sign-up/sign-up.component';
 
+import ShopHome from './components/shop/home.shop.component';
+
 const App = ()=> {
 
 return(
@@ -18,6 +20,7 @@ return(
     <Route index element={<Home/>}/>
     <Route path='auth' element={<Authentication/>}/>
     <Route path='signUp' element={<SignUp/>}/>
+    <Route path='shop' element={<ShopHome/>}/>
     
   </Route>
 </Routes>
