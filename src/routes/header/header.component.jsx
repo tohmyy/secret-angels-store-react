@@ -40,7 +40,7 @@ const Navigation = () => {
           {/* </ul> */}
           
         </div>
-        {!openCartState && <CartDropdown/>}
+        {openCartState && <CartDropdown/>}
         
         
       </div>

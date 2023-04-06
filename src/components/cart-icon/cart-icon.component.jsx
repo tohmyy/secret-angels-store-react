@@ -1,12 +1,19 @@
 import './cart-icon.styles.scss'
-import { useContext } from 'react'
+import { useContext, useEffect } from 'react'
 import {ReactComponent as ShoppingIcon} from '../../assets/shopping-bag.svg'
 import React from 'react'
 import { CartItemsContext } from '../../context/cart-items.context'
 
 const CartIcon = () => {
   const {openCartState, setOpenCartState} = useContext(CartItemsContext)
-
+  const {cartItems, cartCount} = useContext(CartItemsContext)
+  // console.log(cartItems)
+  
+//   useEffect(()=>{
+//     // cartItems.reduce((total, cartItem) => total + cartItem.quantity, 0)
+//     setOpenCartState(false)            
+// })
+  
   const toggleDropdown = ()=> {
     setOpenCartState(!openCartState)
     // if (openCartState==false){
@@ -23,6 +30,7 @@ const CartIcon = () => {
     // else{
     //   console.log('it works')
     // }
+  
 
   }
 
@@ -31,7 +39,7 @@ const CartIcon = () => {
   return (
     <div className='cart-icon-container' onClick={toggleDropdown}>
       <ShoppingIcon className='shopping-icon'/>
-      <span className='item-count'>10</span>
+      <span className='item-count'>{cartCount}</span>
     </div>
   )
 }
