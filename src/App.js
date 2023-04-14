@@ -1,6 +1,6 @@
 // import logo from './logo.svg';
 import './App.css';
-import './categories.styles.scss'
+// import './categories.styles.scss'
 import Home from './routes/home/home.component';
 import Navigation from './routes/header/header.component';
 import Authentication from './routes/authentication/authentication.component';

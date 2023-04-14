@@ -1,6 +1,7 @@
 import React from 'react'
-import './main.styles.scss'
+// import './main.styles.jsx'
 import DirectoryItem from '../directory-item/directory-item.component'
+import { MainContainer } from './main.styles.jsx'
 
 const categories = [
   {
@@ -39,7 +40,7 @@ const categories = [
 const Main = () => {
 
   return (
-    <div className='main-container'>
+    <MainContainer>
     {categories.map((category)=>( 
      <DirectoryItem 
       key={category.id} 
@@ -48,7 +49,7 @@ const Main = () => {
     ))}
     
     
-    </div>
+    </MainContainer>
   )
 }
 

@@ -1,4 +1,4 @@
-import './checkout-main.styles.scss'
+// import './checkout-main.styles.scss'
 import React from 'react'
 
 const CheckoutMain = () => {
