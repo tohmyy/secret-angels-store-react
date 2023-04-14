@@ -7,7 +7,7 @@ import SignUp from '../../components/sign-up/sign-up.component'
 import SignIn from '../../components/sign-in/sign-in.component'
 import FormInput from '../../components/form-input/form-input.component'
 // import FormInput from "../form-input/form-input.component";
-import './authentication.styles.scss'
+import {AuthPageContainer, SignInContainer} from './authentication.styles.jsx'
 const Authentication = () => {
   // useEffect(()=>{
   //   const fetchResponse = async()=>{
@@ -28,10 +28,10 @@ const Authentication = () => {
     }
 
   return (
-    <div className='auth-page-container'>
+    <AuthPageContainer>
 
-      <div className="sign-in-container">
-      <SignIn/>
+      <SignInContainer>
+        <SignIn/>
        {/* <form> */}
         {/* <FormInput
           label="Display Name" 
@@ -54,12 +54,12 @@ const Authentication = () => {
       
            {/* <button onClick={logGoogleUser}>Sign In With Google Popup</button> */}
       
-      </div>
+      </SignInContainer>
     
     {/* <button onClick={signInWithGoogleRedirect}>Sign In With Google Redirect</button> */}
       
       <SignUp/>
-    </div>
+    </AuthPageContainer>
   )
 }
 

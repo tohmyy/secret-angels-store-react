@@ -2,14 +2,19 @@ import React from 'react'
 import MainShop from './main.shop.component'
 import SHOP_DATA from '../../data/shop-data.json'
 import { useContext } from 'react'
-import { ProductsContext } from '../../context/products.context'
+import { CategoriesContext } from '../../context/categories.context'
+
+import {ShopContainer }  from './shop.styles.jsx'
 
 const ShopHome = () => {
-    const {products} = useContext(ProductsContext)
+    const {categoriesMap} = useContext(CategoriesContext)
   return (
-    <div style={{padding: '0px 30px' }}>
-      <MainShop shopData={products}/>
-    </div>
+    
+
+    <ShopContainer style={{padding: '0px 30px' }}>
+      <MainShop categoriesItems={categoriesMap}/>
+      {/* <MainShop shopData={products}/> */}
+    </ShopContainer>
   )
 }
 

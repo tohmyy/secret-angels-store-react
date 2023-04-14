@@ -1,8 +1,10 @@
 import React from 'react'
-import Button from '../button/button.component'
-import './shop.styles.scss'
+import Button, {BUTTON_TYPE_CLASSES} from '../button/button.component.jsx'
+import {ItemsContainer, ItemBox, ImgBox, Image, TextBox }  from './shop.styles.jsx'
 import { useContext } from 'react'
 import { CartItemsContext } from '../../context/cart-items.context'
+// import { BUTTON_TYPE_CLASSES } from '../button/button.component.jsx'
+
 
 const Shop = ({item}) => {
 
@@ -16,19 +18,19 @@ const Shop = ({item}) => {
     <>
     
 
-        <div className="items-container">
-            <div className="item-box">
+        <ItemsContainer>
+            <ItemBox>
                 
-                <div className="img-box">
+                <ImgBox>
                     <img src={`${imageUrl}`} alt="" width='100%' height='100%' name={name}/>
-                    <Button buttonType={'inverted'} onClick={addProductToCartHandler}>ADD TO CART</Button>
-                </div>
-                <div className="text-box">
+                    <Button buttonType={BUTTON_TYPE_CLASSES.inverted} onClick={addProductToCartHandler}>ADD TO CART</Button>
+                </ImgBox>
+                <TextBox>
                     <p>{name}</p>
                     <p>${price}</p>
-                </div>
-            </div>
-        </div>
+                </TextBox>
+            </ItemBox>
+        </ItemsContainer>
 
 
 </>

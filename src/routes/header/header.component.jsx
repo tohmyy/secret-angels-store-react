@@ -7,8 +7,8 @@ import CartDropdown from '../../components/cart-dropdown/cart-dropdown.component
 import { CartItemsContext } from '../../context/cart-items.context'
 import { UserContext } from '../../context/user.context'
 import { signOutUser } from '../../utils/firebase/firebase.utils'
-import './header.styles.scss'
 
+import { NavigationContainer, LogoContainer, NavLinks, NavLink } from './header.styles.jsx'
 const Navigation = () => {
 
   const {currentUser} = useContext(UserContext)
@@ -23,27 +23,27 @@ const Navigation = () => {
 
   return (
     <Fragment>
-      <div className='Navbar'>
-        <Link className="Logo-Container" to='/'>
+      <NavigationContainer>
+        <LogoContainer to='/'>
 
             <img src="https://cdn.fs.teachablecdn.com/VFIUPvFyQqSCzexfMZe3" alt="logo" />
-        </Link>
+        </LogoContainer>
         
-        <div className='Navbuttons'>
+        <NavLinks>
           {/* <ul> */}
-            <Link className='NavLinks' to='/shop'><div>SHOP</div> </Link>
-        <Link className='NavLinks' to='/contact'><div>CONTACT</div> </Link>
-        {currentUser ? <span className='nav-link' onClick={signOutUser}>SIGN OUT</span > : <Link className='NavLinks' to='/auth'><div>SIGN IN</div> </Link>}
+            <NavLink to='/shop'><div>SHOP</div> </NavLink>
+        <NavLink to='/contact'><div>CONTACT</div> </NavLink>
+        {currentUser ? <NavLink as='span' onClick={signOutUser}>SIGN OUT</NavLink > : <NavLink to='/auth'><div>SIGN IN</div> </NavLink>}
         
         <CartIcon />
         {/* <li>i</li>   */}
           {/* </ul> */}
           
-        </div>
+        </NavLinks>
         {openCartState && <CartDropdown/>}
         
         
-      </div>
+      </NavigationContainer>
       <Outlet/>
       </Fragment>
 

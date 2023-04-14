@@ -3,10 +3,13 @@ import { createUserWithEmailAndPassword, getAuth } from "firebase/auth";
 import { UserContext } from "../../context/user.context";
 import { createAuthUserWithEmailAndPassword, signInAuthUserWithEmailAndPassword, createUserDocumentFromAuth, signInWithGooglePopup } from "../../utils/firebase/firebase.utils";
 import { async } from "@firebase/util";
-import './sign-in.styles.scss'
-import FormInput from "../form-input/form-input.component";
-import Button from "../button/button.component";
 
+import FormInput from "../form-input/form-input.component";
+import Button, {BUTTON_TYPE_CLASSES} from "../button/button.component";
+import { BaseButton } from "../button/button.styles";
+
+import { SignInContainer, ButtonsContainer, Header} from "./sign-in.styles.jsx";
+// import {ButtonsContainer, SignInContainer, h2} from './sign-in.styles.jsx'
 // import { Auth } from "firebase/auth";
 
 const defaultFormFields = {
@@ -78,8 +81,8 @@ const SignIn = () => {
     }
 
   return (
-    <div className="sign-in-container">
-        <h2>Already Have an Account? </h2>
+    <SignInContainer>
+        <Header>Already Have an Account? </Header>
       <span>Sign In with your email and password</span>
       <form action="" onSubmit={handleSubmit}>
 
@@ -99,13 +102,13 @@ const SignIn = () => {
         name="password" 
         value = {password} />
 
-        <div className="buttons-container">
+        <ButtonsContainer>
             <Button type="submit">Sign In</Button>
-            <Button buttonType="google" onClick={signInWithGoogle} type="button">Google Sign In</Button>
-            </div> 
+            <Button buttonType={BUTTON_TYPE_CLASSES.google} onClick={signInWithGoogle} type="button">Google Sign In</Button>
+            </ButtonsContainer> 
       </form>
       
-    </div>
+    </SignInContainer>
   )
 }
 

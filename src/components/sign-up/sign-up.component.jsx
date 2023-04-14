@@ -3,11 +3,12 @@ import { UserContext } from "../../context/user.context";
 import { createUserWithEmailAndPassword, getAuth } from "firebase/auth";
 import { createAuthUserWithEmailAndPassword, createUserDocumentFromAuth } from "../../utils/firebase/firebase.utils";
 import { async } from "@firebase/util";
-import './sign-up.styles.scss'
+
 import FormInput from "../form-input/form-input.component";
 import Button from "../button/button.component";
 // import { Auth } from "firebase/auth";
 
+import {SignUpContainer, Header} from './sign-up.styles.jsx'
 const defaultFormFields = {
     displayName:'',
     email:'',
@@ -71,8 +72,8 @@ const SignUp = () => {
     }
 
   return (
-    <div className="sign-up-container">
-        <h2>Don't have an account? </h2>
+    <SignUpContainer>
+        <Header>Don't have an account? </Header>
       <span>Sign up with your email and password</span>
       <form action="" onSubmit={handleSubmit}>
         <FormInput 
@@ -121,7 +122,7 @@ const SignUp = () => {
         <Button buttonType={'inverted'} type='submit'>Sign Up with </Button> */}
         <Button type="submit">Sign Up</Button>
       </form>
-    </div>
+    </SignUpContainer>
   )
 }
 

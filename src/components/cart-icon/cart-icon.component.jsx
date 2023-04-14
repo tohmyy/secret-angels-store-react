@@ -1,6 +1,7 @@
-import './cart-icon.styles.scss'
+import {CartIconContainer, ItemCount, ShoppingIcon} from './cart-icon.styles.jsx'
+
 import { useContext, useEffect } from 'react'
-import {ReactComponent as ShoppingIcon} from '../../assets/shopping-bag.svg'
+// import {ReactComponent as ShoppingIcon} from '../../assets/shopping-bag.svg'
 import React from 'react'
 import { CartItemsContext } from '../../context/cart-items.context'
 
@@ -37,10 +38,10 @@ const CartIcon = () => {
   // sets state of opencart when toggled to the opposite of current opencart state
 
   return (
-    <div className='cart-icon-container' onClick={toggleDropdown}>
-      <ShoppingIcon className='shopping-icon'/>
-      <span className='item-count'>{cartCount}</span>
-    </div>
+    <CartIconContainer onClick={toggleDropdown}>
+      <ShoppingIcon/>
+      <ItemCount as='span'>{cartCount}</ItemCount>
+    </CartIconContainer>
   )
 }
 
